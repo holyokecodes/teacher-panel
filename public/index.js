@@ -1,14 +1,21 @@
 $(() => {
 
-    fetch('/getstate')
+     $('#urlmenu').change(() => {
+       let url = $('#urlmenu').val();
+       $('#mainurl').val(url);
+       console.log(url);
+     });
+     
+     fetch('/getstate')
         .then(response => response.json())
         .then(data => {
             $('#mainurl').val(data.mainUrl);
             $('#muteAll').prop('checked', data.mute);
         });
-
-    $('#submitURL').click(() => {
+     
+     $('#submitURL').click(() => {
         let url = $('#mainurl').val();
+        console.log(url);
         fetch('/setkey', {
             method: 'POST',
             headers: {

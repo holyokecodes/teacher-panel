@@ -6,16 +6,27 @@
     <script src="index.js"></script>
     
       <title>Teacher Display Controller</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
-  </style>
-  <link rel="stylesheet" href="./style.css">
+  
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <label for="mainurl">URL to Load:</label>
-    <input type="text" id="mainurl" name="mainurl">
+     <main>
+     <h1>GaleForce Teacher Panel</h1>
+    <label for="mainurl">URL to Load:</label> 
+    <select id="urlmenu" name="urlmenu">
+    <option value="https://www.youtube.com/embed/45CvqgyDUqA">16 Years Later Video (2 min)</option>
+    <option value="https://www.youtube.com/embed/fgMlOqeqlA0">Robots in the World Video (2:40)</option>
+         <option value="https://www.youtube.com/embed/XL9D8Pfedm8">Hurricane Winds and Debris Video (2 min)</option>
+     <option value="https://docs.google.com/presentation/d/1X3M6qx0KqqgnSaQ1v3PaG0CwiZzcgz-SDP5hPvhwlBY/present#slide=id.gb49213746e_0_310">Intro to Co-robotics Slides</option>
+     <option value="https://docs.google.com/presentation/d/1pCITlQeTgiM8Sq55PfWzejOVTmkfV4lpNINuo2YYXzs/present?usp=sharing">Intro to Machine Learning Slides</option>
+     <option value="https://cv-recognize-objects.glitch.me/">Train Robots to have Computer Vision</option>       
+     <option value="https://www.youtube.com/embed/LUeKZtTWmh0">Drone Delivery Video (1 min)</option>
+
+         
+     </select> <p>
+
+    <input type="text" id="mainurl" name="mainurl" size=40>
     <button id="submitURL" type="button">Send to game</button>
     <br>
     <br>
@@ -24,6 +35,8 @@
     <br>
     <input type="checkbox" id="muteAll" name="muteAll">
     <label for="muteAll"> Mute Everyone (Except Teachers)</label>
+          
+</main>          
 </body>
 
 </html>
