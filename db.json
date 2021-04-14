@@ -1,5 +1,7 @@
 {
   "mainUrl": "https://docs.google.com/presentation/d/1pCITlQeTgiM8Sq55PfWzejOVTmkfV4lpNINuo2YYXzs/present?usp=sharing",
   "clicks": 24,
-  "mute": false
+  "mute": false,
+  "stage": "Learn to Drive",
+  "callback": false
 }
