@@ -44,6 +44,20 @@ $(() => {
         });
     });
 
+    $('#submitVideoPlayer').click(() => {
+        let video = $('#videoplayermenu').val();
+        fetch('/setkey', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "key": "video",
+                "value": video
+            }),
+        });
+    });
+
     $('#click').click(() => {
         fetch('/click');
     });
