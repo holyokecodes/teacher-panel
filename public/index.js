@@ -44,6 +44,46 @@ $(() => {
         });
     });
 
+    $('#submitVideoPlayer').click(() => {
+        let video = $('#videoplayermenu').val();
+        fetch('/setkey', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "key": "video",
+                "value": video
+            }),
+        });
+    });
+
+    $('#playButton').click(() => {
+        fetch('/setkey', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "key": "videoPlayback",
+                "value": true
+            }),
+        });
+    });
+
+    $('#pauseButton').click(() => {
+        fetch('/setkey', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "key": "videoPlayback",
+                "value": false
+            }),
+        });
+    });
+
     $('#click').click(() => {
         fetch('/click');
     });
