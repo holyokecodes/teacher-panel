@@ -42,6 +42,28 @@ app.get('/click', (req, res) => {
     res.send(db.getState());
 });
 
+app.get('/updatelocation', (req, res) => {
+
+    let id = req.query.id;
+    let name = req.query.name;
+    let location = req.query.location;
+
+    let timeStamp = Date.now();
+
+    if(db.get('locations').value() == null) {
+        db.set('locations', {})
+            .write();
+    }
+
+    db.get('locations').set(id, {name: name, location: location, timeStamp: timeStamp}).write();
+
+    res.sendStatus(200);
+});
+
+app.get('/getlocations', (req, res) => {
+    res.json(db.get('locations').value() || {});
+});
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 });
