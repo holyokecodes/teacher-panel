@@ -1,6 +1,6 @@
 $(() => {
     setInterval(() => {
-        $.get("https://arjs-cors-proxy.herokuapp.com/https://teachers.jacobbashista.com/getlocations", function (data) {
+        $.get("/getlocations", function (data) {
 
             $('#locationtable tbody').empty();
 
