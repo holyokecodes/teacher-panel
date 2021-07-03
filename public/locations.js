@@ -27,9 +27,10 @@ $(() => {
 
                 if(!locations.includes(primary_location)) {
                     primary_location = "other";
+                    $(`#${primary_location} tbody`).append($('<tr>').append($('<td>').text(value.name)).append($('<td>').text(primary_location)).append($('<td>').text(secondary_location + ' ' + tertiary_location)).append($(`<td style="color: ${color};">`).text(timeago + "min ago")));
+                } else {
+                    $(`#${primary_location} tbody`).append($('<tr>').append($('<td>').text(value.name)).append($('<td>').text(secondary_location + ' ' + tertiary_location)).append($(`<td style="color: ${color};">`).text(timeago + "min ago")));
                 }
-
-                $(`#${primary_location} tbody`).append($('<tr>').append($('<td>').text(value.name)).append($('<td>').text(secondary_location + ' ' + tertiary_location)).append($(`<td style="color: ${color};">`).text(timeago + "min ago")));
             }
         });
     }, 5000);
