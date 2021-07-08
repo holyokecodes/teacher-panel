@@ -11,8 +11,9 @@ $(() => {
         .then(response => response.json())
         .then(data => {
             $('#mainurl').val(data.mainUrl);
+            $('#mainurl').val(data.mainUrl);
             $('#muteAll').prop('checked', data.mute);
-            $('#stagemenu').val(data.stage);
+            $('#completedMissions').val(JSON.stringify(data.teams));
         });
 
     $('#submitURL').click(() => {
@@ -112,6 +113,19 @@ $(() => {
             body: JSON.stringify({
                 "key": "callback",
                 "value": checked
+            }),
+        });
+    });
+
+    $('#saveJSON').click(() => {
+        fetch('/setkey', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "key": "teams",
+                "value": JSON.parse($('#completedMissions').val())
             }),
         });
     });
