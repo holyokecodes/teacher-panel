@@ -1,6 +1,6 @@
 $(() => {
 
-    const locations = ['TrainingComplex', 'ControlRoomTeam1', 'ControlRoomTeam2', 'ControlRoomTeam3', 'ControlRoomTeam4'];
+    const locations = ['TrainingComplex', 'ControlRoom_Team1', 'ControlRoom_Team2', 'ControlRoom_Team3', 'ControlRoom_Team4'];
 
 
     setInterval(() => {
