@@ -12,13 +12,15 @@ $(() => {
 
                 let timeago = Math.round(((Date.now() - value.timeStamp))/1000/60);
 
-                let color = 'green';
+                let color = 'lime';
                 if(timeago > 15) {
-                    color = 'yellow';
+                    color = 'lightgreen';
                 }
                 if(timeago > 30) {
-                    color = 'red';
+                    color = 'grey';
                 }
+                if(timeago > 100) 
+                     continue;
 
                 let primary_location = value.location.split('_')[0];
                 let secondary_location = value.location.split('_')[1] || "";
