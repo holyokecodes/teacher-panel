@@ -50,12 +50,42 @@ app.get('/updatelocation', (req, res) => {
 
     let timeStamp = Date.now();
 
-    if(db.get('locations').value() == null) {
+    if (db.get('locations').value() == null) {
         db.set('locations', {})
             .write();
     }
 
-    db.get('locations').set(id, {name: name, location: location, timeStamp: timeStamp}).write();
+    db.get('locations').set(id, { name: name, location: location, timeStamp: timeStamp }).write();
+
+    res.sendStatus(200);
+});
+
+app.get('/updatemission', (req, res) => {
+
+    let team = req.query.team;
+    let mission = req.query.mission;
+
+    let teams = db.get('teams');
+    if (teams.size() == 0) {
+        let teamEntry = { teamName: team, completedMissions: [mission] };
+        db.set('teams', [teamEntry]).write();
+    } else {
+        let index = 0;
+        teams.value().forEach(eTeam => {
+            if (eTeam.teamName == team) {
+                eTeam.completedMissions.push(mission);
+                db.write();
+                return;
+            }
+            
+            if (index == teams.size() - 1) {
+                let teamEntry = { teamName: team, completedMissions: [mission] };
+                teams.value().push(teamEntry);
+                db.write();
+            }
+            index++;
+        });
+    }
 
     res.sendStatus(200);
 });
