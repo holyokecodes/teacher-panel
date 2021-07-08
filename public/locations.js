@@ -29,6 +29,8 @@ $(() => {
 
                 if(!locations.includes(primary_location)) {
                     $(`#other tbody`).append($('<tr>').append($('<td>').text(value.name)).append($('<td>').text(primary_location)).append($('<td>').text(secondary_location + ' ' + tertiary_location)).append($(`<td style="color: ${color};">`).text(timeago + "min ago")));
+                } else if(primary_location == "ControlRoom") {
+                    $(`#${primary_location}_${secondary_location} tbody`).append($('<tr>').append($('<td>').text(value.name)).append($('<td>').text(tertiary_location)).append($(`<td style="color: ${color};">`).text(timeago + "min ago")));
                 } else {
                     $(`#${primary_location} tbody`).append($('<tr>').append($('<td>').text(value.name)).append($('<td>').text(secondary_location + ' ' + tertiary_location)).append($(`<td style="color: ${color};">`).text(timeago + "min ago")));
                 }
