@@ -12,7 +12,7 @@ $(() => {
 
                 let timeago = Math.round(((Date.now() - value.timeStamp)) / 1000 / 60);
 
-                let color = 'lime';
+                let color = 'limegreen';
                 if (timeago > 15) {
                     color = 'lightgreen';
                 }
