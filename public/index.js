@@ -39,7 +39,21 @@ $(() => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                "key": "stage",
+                "key": "trainingComplexStage",
+                "value": stage
+            }),
+        });
+    });
+
+    $('#submitStage2').click(() => {
+        let stage = $('#stagemenu2').val();
+        fetch('/setkey', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "key": "controlRoomStage",
                 "value": stage
             }),
         });
